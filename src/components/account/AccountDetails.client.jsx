@@ -1,8 +1,8 @@
 // import { Seo } from '@shopify/hydrogen';
 import { useState } from 'react';
-import { Button, Section, Heading } from 'components';
+import { Button, Section, Heading } from 'components/elements';
 
-import { AccountDetailsEdit } from '../account/AccountDetailsEdit.client';
+import { AccountDetailsEdit } from './AccountDetailsEdit.client';
 
 export function AccountDetails({ firstName, lastName, phone, email }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -27,7 +27,7 @@ export function AccountDetails({ firstName, lastName, phone, email }) {
       </div>
       {isEditing ? (
         <>
-          <Seo type="noindex" data={{ title: 'Details du compte' }} />
+          {/*<Seo type="noindex" data={{ title: 'Details du compte' }} />*/}
           <AccountDetailsEdit firstName={firstName} lastName={lastName} phone={phone} email={email} close={close} />
         </>
       ) : (

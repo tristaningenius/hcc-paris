@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from '@shopify/hydrogen/client';
 import emailjs from '@emailjs/browser';
 
 import { emailValidation, passwordValidation, getInputStyleClasses } from 'lib';
-import { Button, ErrorsLabel, Section, Heading } from 'components';
+import { Button, ErrorsLabel, Section, Heading } from 'components/elements';
 import { callLoginApi } from './AccountLoginForm.client';
 
 export function AccountCreateProForm() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [submitError, setSubmitError] = useState(null);
   const [lastName, setLastName] = useState('');
@@ -71,7 +70,7 @@ export function AccountCreateProForm() {
 
     emailjs.send('service_ukx4tu1', 'template_2pqlbja', templateParams, 'AGHp1N_02SuQKPk22');
 
-    navigate('/account');
+    // navigate('/account');
   }
 
   return (

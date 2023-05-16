@@ -1,8 +1,8 @@
 import { gsap, Power2 } from 'gsap';
 import { useEffect, useRef } from 'react';
-import { Button, LoyaltyCard } from 'components/elements';
+import { Button } from 'components/elements';
 
-export function MenuModal({ isLogged = false, isOpen, closeModal, customerEmail, customerIdNum, isPro = false }) {
+export function MenuModal({ isOpen, closeModal }) {
   const modalRef = useRef(null);
   const modalContentRef = useRef(null);
 

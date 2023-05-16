@@ -1,12 +1,10 @@
-import { Fragment } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { statusMessage } from 'lib/utils';
 import { Label, Text, Heading } from 'components/elements';
 
 export function OrderCard({ order }) {
   if (!order?.id) return null;
-  const legacyOrderId = order.id.split('/').pop().split('?')[0];
+  // const legacyOrderId = order.id.split('/').pop().split('?')[0];
   // const lineItems = flattenConnection(order?.lineItems);
 
   return (

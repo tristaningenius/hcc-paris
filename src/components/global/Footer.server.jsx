@@ -1,5 +1,5 @@
 import { LogoText } from 'components/elements/AssetImport';
-import { Button, LogoStar } from 'components/elements';
+import { Button } from 'components/elements';
 
 export function Footer() {
   return (

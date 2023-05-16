@@ -9,7 +9,7 @@ import { useCartStore } from 'components/elements/cartStore';
 
 export function Header({ isLogged, customerEmail, customerIdNum, isPro }) {
   const [isPanierModalOpen, setIsPanierModalOpen] = useState(false);
-  const [isTopBannerOpen, setIsTopBannerOpen] = useState(true);
+  const [isTopBannerOpen] = useState(true);
   const cartStore = useCartStore();
   useEffect(() => {
     cartStore.fetch();

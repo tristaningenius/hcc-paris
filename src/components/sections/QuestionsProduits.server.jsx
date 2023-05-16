@@ -1,8 +1,8 @@
 // import { gql, useShopQuery } from '@shopify/hydrogen';
 
-import { Section, Heading, Button, Icon } from 'components/elements';
+import { Section, Button, Icon } from 'components/elements';
 
-export function QuestionsProduits({ collectionName, questionsTitle }) {
+export function QuestionsProduits() {
   // const {
   //   data: {
   //     metaobjects: { nodes: faqdata },

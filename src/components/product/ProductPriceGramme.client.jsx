@@ -1,9 +1,9 @@
 // import {Money} from '@shopify/hydrogen';
 
-function formatPrice(price, weight) {
-  const pricePerGram = Math.round((price / weight) * 100) / 100;
-  return `${pricePerGram.toLocaleString('fr-FR')}`;
-}
+// function formatPrice(price, weight) {
+//   const pricePerGram = Math.round((price / weight) * 100) / 100;
+//   return `${pricePerGram.toLocaleString('fr-FR')}`;
+// }
 
 export function ProductPriceGramme({
   regularPrice,
@@ -12,15 +12,15 @@ export function ProductPriceGramme({
   type,
   isDiscounted,
   isGrosProduct = false,
-  collectionTitle,
+  // collectionTitle,
 }) {
   if (regularPrice < 0.01) return null;
-  const taxAmount = collectionTitle === 'vapes-hhc' ? 0.8 : 1.055;
+  // const taxAmount = collectionTitle === 'vapes-hhc' ? 0.8 : 1.055;
   // const taxedPrice = isGrosProduct ? regularPrice.amount * taxAmount : regularPrice.amount;
   const horsTax = isGrosProduct ?? <span>HT</span>;
   // const compareAtPriceGram = formatPrice(salePrice, weight);
   const priceGram = type === 'VARIABLE' ? variations?.nodes[0]?.regularPrice : null;
-  const promoPrice = type === 'VARIABLE' ? variations?.nodes[0]?.salePrice : null;
+  // const promoPrice = type === 'VARIABLE' ? variations?.nodes[0]?.salePrice : null;
 
   if (isDiscounted(regularPrice, salePrice)) {
     return type === 'VARIABLE' ? (

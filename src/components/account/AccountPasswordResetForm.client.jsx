@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from '@shopify/hydrogen/client';
+// import { useNavigate } from '@shopify/hydrogen/client';
 import { Button, ErrorsLabel, Heading, Section, Text } from 'components/elements';
 import { getInputStyleClasses } from 'lib';
 
 export function AccountPasswordResetForm({ id, resetToken }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [submitError, setSubmitError] = useState(null);
   const [password, setPassword] = useState('');
@@ -62,7 +62,7 @@ export function AccountPasswordResetForm({ id, resetToken }) {
       return;
     }
 
-    navigate('/account');
+    // navigate('/account');
   }
 
   return (

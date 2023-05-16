@@ -2,11 +2,11 @@ import { useState } from 'react';
 // import { useNavigate } from '@shopify/hydrogen/client';
 
 import { emailValidation, passwordValidation, getInputStyleClasses } from 'lib';
-import { Button, ErrorsLabel, Section, Heading } from 'components';
+import { Button, ErrorsLabel, Section, Heading } from 'components/elements';
 import { callLoginApi } from '../account/AccountLoginForm.client';
 
 export function AccountCreateForm() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [submitError, setSubmitError] = useState(null);
   const [firstName, setFirstName] = useState('');
