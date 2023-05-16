@@ -54,7 +54,16 @@ export function PurchaseMarkup({ quantity, productId }) {
     });
   };
 
-  const goToCart = () => {};
+  const goToCart = (e) => {
+    e.preventDefault();
+    let data = {
+      id: productIdString,
+      quantity: quantityString,
+    };
+    CoCart.post(`cart/add-item?cart_key=${cart_key}`, data).then(() => {
+      window.location.href = 'https://checkout.hhcparis.fr/commander/?cart_key=' + cart_key;
+    });
+  };
 
   return (
     <>
@@ -78,7 +87,8 @@ export function PurchaseMarkup({ quantity, productId }) {
         <span>Bientôt disponible</span>
       ) : (
         <button
-          onClick={goToCart}
+          type={'button'}
+          onClick={(e) => goToCart(e)}
           className="font-display flex h-12 w-full items-center justify-center bg-neutral-600 px-6 text-center text-xl font-semibold uppercase tracking-wide text-tertiary-100 hover:bg-neutral-500 focus:bg-neutral-400"
         >
           Acheter maintenant

@@ -30,7 +30,11 @@ export function Button({ as = 'button', className = '', variant = 'primary', wid
   const styles = `${className} ${variants[variant]} ${widths[width]} select-none`;
 
   if (props.to) {
-    return <Component href={props.to}>{props.children}</Component>;
+    return (
+      <Component href={props.to} className={styles}>
+        {props.children}
+      </Component>
+    );
   }
 
   return <Component className={styles} {...props} />;
