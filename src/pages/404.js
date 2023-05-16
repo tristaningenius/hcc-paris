@@ -1,11 +1,8 @@
 import Link from 'next/link';
 import { Helmet } from 'react-helmet';
-
+import { Section } from 'components/elements';
 import Layout from 'components/Layout';
-import Section from 'components/Section';
 import Container from 'components/Container';
-
-import styles from 'styles/pages/Error.module.scss';
 
 export default function Custom404() {
   return (
@@ -15,12 +12,12 @@ export default function Custom404() {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Section>
-        <Container className={styles.center}>
+        <Container>
           <h1>Page Not Found</h1>
-          <p className={styles.errorCode}>404</p>
-          <p className={styles.errorMessage}>The page you were looking for could not be found.</p>
+          <p>404</p>
+          <p>The page you were looking for could not be found.</p>
           <p>
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <a>Go back home</a>
             </Link>
           </p>

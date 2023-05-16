@@ -1,10 +1,8 @@
 import Container from 'components/Container';
 
-import styles from './Header.module.scss';
-
 const Header = ({ children }) => {
   return (
-    <header className={styles.header}>
+    <header>
       <Container>{children}</Container>
     </header>
   );

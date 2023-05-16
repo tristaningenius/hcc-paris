@@ -16,6 +16,10 @@ import {
   QUERY_POSTS_BY_CATEGORY_ID,
   QUERY_POST_SEO_BY_SLUG,
   QUERY_POST_PER_PAGE,
+  QUERY_SEARCH_PRODUCTS,
+  QUERY_ALL_PRODUCTS,
+  GLOBAL_FAQ,
+  QUERY_PRODUCT_BY_SLUG,
 } from 'data/posts';
 
 /**
@@ -414,3 +418,81 @@ export async function getPaginatedPosts({ currentPage = 1, ...options } = {}) {
     },
   };
 }
+
+/**
+ * get all products
+ */
+
+export async function searchProducts() {
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.query({
+    query: QUERY_SEARCH_PRODUCTS,
+  });
+
+  const categories = data?.productCategories?.edges?.map(({ node }) => node) || [];
+
+  return {
+    categories,
+  };
+}
+
+export async function getAllProducts() {
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.query({
+    query: QUERY_ALL_PRODUCTS,
+  });
+
+  const products = data?.products?.nodes.map((node) => node) || [];
+
+  return {
+    products,
+  };
+}
+
+export async function getGlobalFaq(faqId) {
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.query({
+    query: GLOBAL_FAQ,
+    variables: {
+      faqId,
+    },
+  });
+  const faq = data?.faqBy?.accordeonCategorieProduit || [];
+  return {
+    faq,
+  };
+}
+
+export async function getProductBySlug(slug) {
+  const apolloClient = getApolloClient();
+
+  const { data } = await apolloClient.query({
+    query: QUERY_PRODUCT_BY_SLUG,
+    variables: {
+      slug: slug,
+    },
+  });
+  const product = data?.product || null;
+
+  return {
+    product,
+  };
+}
+
+// export async function getGlobalFaq() {
+//   const apolloClient = getApolloClient();
+//   let faqData;
+//   try {
+//     faqData = await apolloClient.query({
+//       query: QUERY_ALL_POSTS,
+//     });
+//   } catch (e) {
+//     console.log(`[posts][getGlobalFaq] Failed to query post data: ${e.message}`);
+//     throw e;
+//   }
+//   console.log('good');
+//   return faqData;
+// }

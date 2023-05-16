@@ -1,0 +1,200 @@
+@import "style.css";
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600&family=Teko:wght@400;500;600&display=swap');
+@import './swiper.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  .text-vertical {
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
+  }
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: 'Archivo Narrow', sans-serif;
+  background-color: #fbf6e9;
+  color: #242424;
+  font-size: calc(0.125vw + 16px);
+  scroll-behavior:smooth
+}
+
+html::-webkit-scrollbar {
+  width: 0.7rem;
+  background-color: #24242418;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #24242440;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #24242450;
+}
+
+.body-modal_padding {
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .body-modal_padding {
+    padding-right: 0.7rem;
+  }
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  margin-top: 0.75rem;
+  width: 100%;
+  height: 2px;
+  background: #24242433;
+}
+
+.swiper-pagination-bullet-active {
+  background: #525252;
+}
+
+.logo-rotate {
+  animation: rotation 20s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@media (min-width: 1024px) {
+  .products_grid-item:nth-child(5) {
+    grid-column: span 2;
+    grid-row: span 2;
+    overflow: hidden;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .products_grid-item:nth-child(4) {
+    grid-column: span 2;
+    grid-row: span 2;
+    overflow: hidden;
+  }
+}
+
+.article__container,
+.styled-text_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.article__container h2,
+.styled-text_container h2 {
+  font-size: 2.5rem;
+  line-height: normal;
+  padding-top: 3rem;
+}
+.article__container h3,
+.styled-text_container h3 {
+  font-size: 2rem;
+  line-height: normal;
+  padding-top: 2rem;
+}
+
+.article__container h4,
+.styled-text_container h4 {
+  font-size: 1.5rem;
+  line-height: normal;
+  padding-top: 1.5rem;
+}
+
+.article__container ul,
+.styled-text_container ul {
+  font-size: 2rem;
+  line-height: normal;
+  padding-top: 2rem;
+}
+
+.article__container li,
+.styled-text_container li {
+  font-size: 2rem;
+  line-height: normal;
+  padding-top: 2rem;
+}
+
+span{
+  display: block !important;
+  height: 100% !important;
+}
+
+.myDiv {
+  transition: opacity 0.5s ease-out; /* Add other transition properties if needed */
+}
+
+.myDiv.hide {
+  opacity: 0;
+}
+
+
+
+/* .logo-star_fadeIn {
+  opacity: 0;
+ transform: translateY(-20%);
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+} */
+
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+

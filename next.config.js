@@ -40,6 +40,16 @@ module.exports = () => {
   return plugins.reduce((acc, plugin) => plugin(acc), nextConfig);
 };
 
+module.exports = {
+  publicRuntimeConfig: {
+    srcDir: __dirname + '/src',
+  },
+  images: {
+    domains: ['cdn.shopify.com', 'checkout.hhcparis.fr'],
+  },
+  trailingSlash: true,
+};
+
 /**
  * parseEnv
  * @description Helper function to check if a variable is defined and parse booelans

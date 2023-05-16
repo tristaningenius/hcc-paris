@@ -276,6 +276,16 @@ export const QUERY_POSTS_BY_AUTHOR_SLUG = gql`
   }
 `;
 
+export const GET_ALL_FAQ = gql`
+  query AllFaq {
+    posts {
+      nodes {
+        id
+      }
+    }
+  }
+`;
+
 export const QUERY_POST_SEO_BY_SLUG = gql`
   query PostSEOBySlug($slug: ID!) {
     post(id: $slug, idType: SLUG) {
@@ -321,6 +331,202 @@ export const QUERY_POST_PER_PAGE = gql`
   query PostPerPage {
     allSettings {
       readingSettingsPostsPerPage
+    }
+  }
+`;
+
+export const GLOBAL_FAQ = gql`
+  query GlobalFaq($faqId: Int!) {
+    faqBy(faqId: $faqId) {
+      accordeonCategorieProduit {
+        content
+        title
+      }
+    }
+  }
+`;
+
+export const QUERY_SEARCH_PRODUCTS = gql`
+  query SearchProducts {
+    productCategories {
+      edges {
+        cursor
+        node {
+          id
+          name
+          slug
+          products {
+            nodes {
+              id
+              dateGmt
+              slug
+              name
+              tauxHhc
+              description
+              shortDescription
+              excerpt
+              sku
+              image {
+                mediaItemUrl
+              }
+              metaData {
+                key
+                value
+              }
+              type
+              productCategories {
+                nodes {
+                  name
+                  slug
+                }
+              }
+              ... on SimpleProduct {
+                regularPrice
+                salePrice
+                manageStock
+                stockQuantity
+              }
+              ... on VariableProduct {
+                regularPrice
+                salePrice
+                manageStock
+                stockQuantity
+                variations {
+                  nodes {
+                    name
+                    regularPrice
+                    salePrice
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_ALL_PRODUCTS = gql`
+  query AllProducts {
+    products(first: 1000) {
+      nodes {
+        id
+        dateGmt
+        slug
+        name
+        tauxHhc
+        description
+        shortDescription
+        excerpt
+        sku
+        image {
+          mediaItemUrl
+        }
+        metaData {
+          key
+          value
+        }
+        type
+        productCategories {
+          nodes {
+            name
+            slug
+          }
+        }
+        ... on SimpleProduct {
+          regularPrice
+          salePrice
+          manageStock
+          stockQuantity
+        }
+        ... on VariableProduct {
+          regularPrice
+          salePrice
+          manageStock
+          stockQuantity
+          variations {
+            nodes {
+              name
+              regularPrice
+              salePrice
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_PRODUCT_BY_SLUG = gql`
+  query GetProductBySlug($slug: ID!) {
+    product(id: $slug, idType: SLUG) {
+      id
+      dateGmt
+      slug
+      name
+      tauxHhc
+      description
+      shortDescription
+      excerpt
+      sku
+      databaseId
+      attributes {
+        nodes {
+          name
+          options
+        }
+      }
+      image {
+        mediaItemUrl
+      }
+      metaData {
+        key
+        value
+      }
+      type
+      productCategories {
+        nodes {
+          name
+          slug
+        }
+      }
+      ... on SimpleProduct {
+        regularPrice
+        salePrice
+        manageStock
+        stockQuantity
+      }
+      ... on VariableProduct {
+        regularPrice
+        salePrice
+        manageStock
+        stockQuantity
+        variations {
+          nodes {
+            id
+            sku
+            name
+            regularPrice
+            databaseId
+            salePrice
+            metaData {
+              key
+              value
+            }
+            price
+            slug
+            attributes {
+              nodes {
+                name
+                label
+                attributeId
+                value
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;

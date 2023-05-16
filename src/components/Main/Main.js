@@ -1,7 +1,5 @@
-import styles from './Main.module.scss';
-
 const Main = ({ children }) => {
-  return <main className={styles.main}>{children}</main>;
+  return <main className="flex min-h-screen flex-col gap-16 px-2 sm:px-4">{children}</main>;
 };
 
 export default Main;

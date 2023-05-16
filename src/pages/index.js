@@ -1,75 +1,62 @@
-import useSite from 'hooks/use-site';
-import { getPaginatedPosts } from 'lib/posts';
-import { WebsiteJsonLd } from 'lib/json-ld';
-
 import Layout from 'components/Layout';
-import Header from 'components/Header';
-import Section from 'components/Section';
-import Container from 'components/Container';
-import PostCard from 'components/PostCard';
-import Pagination from 'components/Pagination';
+import { Hero } from 'components/sections';
+import { HeroDesktop } from 'components/sections/HeroDesktop.client';
+import { VideoHhc, HomeContact, QuestionsFrequentes, NosSelections } from 'components/index.server';
+import { getGlobalFaq, searchProducts } from '../lib/posts';
 
-import styles from 'styles/pages/Home.module.scss';
+export default function Home({ categories, faq }) {
+  const collections = [
+    {
+      id: 1,
+      image:
+        'https://cdn.shopify.com/s/files/1/0661/5367/7068/collections/Capture_d_ecran_2022-12-26_204129.png?v=1679596355',
+      handle: 'vapes-hhc',
+      title: 'vapes hhc',
+    },
+    {
+      id: 2,
+      image: 'https://cdn.shopify.com/s/files/1/0661/5367/7068/collections/resine-hhc.webp?v=1679597053',
+      handle: 'resines-hhc',
+      title: 'resines hhc',
+    },
 
-export default function Home({ posts, pagination }) {
-  const { metadata = {} } = useSite();
-  const { title, description } = metadata;
+    {
+      id: 3,
+      image: 'https://cdn.shopify.com/s/files/1/0661/5367/7068/collections/fleur-hhc.webp?v=1679596402',
+      handle: 'fleurs-hhc',
+      title: 'fleurs hhc',
+    },
+
+    {
+      id: 4,
+      image: 'https://cdn.shopify.com/s/files/1/0661/5367/7068/collections/huile-hhc.webp?v=1679596330',
+      handle: 'huiles-hhc',
+      title: 'huiles hhc',
+    },
+  ];
 
   return (
     <Layout>
-      <WebsiteJsonLd siteTitle={title} />
-      <Header>
-        <h1
-          dangerouslySetInnerHTML={{
-            __html: title,
-          }}
-        />
-
-        <p
-          className={styles.description}
-          dangerouslySetInnerHTML={{
-            __html: description,
-          }}
-        />
-      </Header>
-
-      <Section>
-        <Container>
-          <h2 className="sr-only">Posts</h2>
-          <ul className={styles.posts}>
-            {posts.map((post) => {
-              return (
-                <li key={post.slug}>
-                  <PostCard post={post} />
-                </li>
-              );
-            })}
-          </ul>
-          {pagination && (
-            <Pagination
-              addCanonical={false}
-              currentPage={pagination?.currentPage}
-              pagesCount={pagination?.pagesCount}
-              basePath={pagination?.basePath}
-            />
-          )}
-        </Container>
-      </Section>
+      <div className="hidden h-[90vh] sm:block">
+        <HeroDesktop data={collections} />
+      </div>
+      <Hero data={collections} />
+      <VideoHhc />
+      <NosSelections data={categories} />
+      <QuestionsFrequentes faq={faq} />
+      <HomeContact />
     </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const { posts, pagination } = await getPaginatedPosts({
-    queryIncludes: 'archive',
-  });
+  const { categories } = await searchProducts();
+  const { faq } = await getGlobalFaq(596);
+
   return {
     props: {
-      posts,
-      pagination: {
-        ...pagination,
-        basePath: '/posts',
-      },
+      categories,
+      faq,
     },
   };
 }

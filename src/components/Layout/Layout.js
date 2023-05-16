@@ -1,13 +1,11 @@
 import { useRouter } from 'next/router';
 import { Helmet } from 'react-helmet';
-import styles from './Layout.module.scss';
-
 import useSite from 'hooks/use-site';
 import { helmetSettingsFromMetadata } from 'lib/site';
 
-import Nav from 'components/Nav';
 import Main from 'components/Main';
-import Footer from 'components/Footer';
+import { Header } from 'components/global/Header.client';
+import { Footer } from 'components/global/Footer.server';
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -32,9 +30,6 @@ const Layout = ({ children }) => {
           type: 'application/rss+xml',
           href: '/feed.xml',
         },
-
-        // Favicon sizes and manifest generated via https://favicon.io/
-
         {
           rel: 'apple-touch-icon',
           sizes: '180x180',
@@ -61,15 +56,15 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className={styles.layoutContainer}>
+    <>
       <Helmet {...helmetSettings} />
 
-      <Nav />
+      <Header data={''} isLogged={'false'} promoMessage={''} customerEmail={''} customerIdNum={''} isPro={''} />
 
       <Main>{children}</Main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

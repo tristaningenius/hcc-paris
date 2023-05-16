@@ -4,7 +4,6 @@ import { FaSearch } from 'react-icons/fa';
 
 import useSite from 'hooks/use-site';
 import useSearch, { SEARCH_STATE_LOADED } from 'hooks/use-search';
-import { postPathBySlug } from 'lib/posts';
 import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
 
 import Section from 'components/Section';
@@ -178,7 +177,7 @@ const Nav = () => {
     <nav className={styles.nav}>
       <Section className={styles.navSection}>
         <p className={styles.navName}>
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <a>{title}</a>
           </Link>
         </p>
@@ -211,7 +210,8 @@ const Nav = () => {
                     {results.map(({ slug, title }, index) => {
                       return (
                         <li key={slug}>
-                          <Link tabIndex={index} href={postPathBySlug(slug)}>
+                          {/*<Link tabIndex={index} href={postPathBySlug(slug)}>*/}
+                          <Link tabIndex={index} href="#" legacyBehavior>
                             <a>{title}</a>
                           </Link>
                         </li>

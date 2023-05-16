@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 
 import useSite from 'hooks/use-site';
-import { getAllCategories, categoryPathBySlug } from 'lib/categories';
+import { getAllCategories } from 'lib/categories';
 import { WebpageJsonLd } from 'lib/json-ld';
 
 import Layout from 'components/Layout';
@@ -44,7 +44,8 @@ export default function Categories({ categories }) {
             {categories.map((category) => {
               return (
                 <li key={category.slug}>
-                  <Link href={categoryPathBySlug(category.slug)}>
+                  {/*<Link href={categoryPathBySlug(category.slug)}>*/}
+                  <Link href="#" legacyBehavior>
                     <a>{category.name}</a>
                   </Link>
                 </li>

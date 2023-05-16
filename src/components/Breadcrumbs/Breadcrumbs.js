@@ -16,7 +16,8 @@ const Breadcrumbs = ({ className, breadcrumbs }) => {
           <li key={id}>
             {!uri && title}
             {uri && (
-              <Link href={uri}>
+              // <Link href={uri}>
+              <Link href="#" legacyBehavior>
                 <a>{title}</a>
               </Link>
             )}
