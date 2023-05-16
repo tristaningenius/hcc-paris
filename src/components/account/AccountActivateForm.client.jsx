@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from '@shopify/hydrogen/client';
 import { Button, ErrorsLabel, Heading, Section, Text } from 'components/elements';
 import { getInputStyleClasses } from 'lib';
 
 export function AccountActivateForm({ id, activationToken }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [submitError, setSubmitError] = useState(null);
   const [password, setPassword] = useState('');
@@ -62,7 +61,7 @@ export function AccountActivateForm({ id, activationToken }) {
       return;
     }
 
-    navigate('/account');
+    // navigate('/account');
   }
 
   return (

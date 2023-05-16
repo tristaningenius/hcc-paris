@@ -1,13 +1,10 @@
-import { useCallback } from 'react';
-import { useServerProps } from '@shopify/hydrogen';
-
-export function useRenderServerComponents() {
-  const { serverProps, setServerProps } = useServerProps();
-
-  return useCallback(() => {
-    setServerProps('renderRsc', !serverProps.renderRsc);
-  }, [serverProps, setServerProps]);
-}
+// export function useRenderServerComponents() {
+//   const { serverProps, setServerProps } = useServerProps();
+//
+//   return useCallback(() => {
+//     setServerProps('renderRsc', !serverProps.renderRsc);
+//   }, [serverProps, setServerProps]);
+// }
 
 export function getApiErrorMessage(field, data, errors) {
   if (errors?.length) return errors[0].message ?? errors[0];
