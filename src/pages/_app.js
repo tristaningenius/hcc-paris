@@ -1,6 +1,5 @@
 import NextApp from 'next/app';
 import { SiteContext, useSiteContext } from 'hooks/use-site';
-// import { SessionProvider } from 'next-auth/react';
 import { getSiteMetadata } from 'lib/site';
 import NextNProgress from 'nextjs-progressbar';
 
