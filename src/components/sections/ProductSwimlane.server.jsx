@@ -42,43 +42,43 @@ export function ProductSwimlane() {
   // }
 }
 
-function RecommendedProducts({ productId, count }) {
-  //   const {
-  //     language: { isoCode: languageCode },
-  //     country: { isoCode: countryCode },
-  //   } = useLocalization();
-  //
-  //   const { data: products } = useShopQuery({
-  //     query: RECOMMENDED_PRODUCTS_QUERY,
-  //     variables: {
-  //       count,
-  //       productId,
-  //       languageCode,
-  //       countryCode,
-  //     },
-  //   });
-  //
-  //   const mergedProducts = products.recommended
-  //     .concat(products.additional.nodes)
-  //     .filter((value, index, array) => array.findIndex((value2) => value2.id === value.id) === index);
-  //
-  //   const originalProduct = mergedProducts.map((item) => item.id).indexOf(productId);
-  //
-  //   mergedProducts.splice(originalProduct, 1);
-  //
-  //   return <Slider title="Vous aimerez aussi" data={mergedProducts} />;
-  // }
-  //
-  // function TopProducts({ count }) {
-  //   const {
-  //     data: { products },
-  //   } = useShopQuery({
-  //     query: TOP_PRODUCTS_QUERY,
-  //     variables: {
-  //       count,
-  //     },
-  //   });
+// function RecommendedProducts({ productId, count }) {
+//   const {
+//     language: { isoCode: languageCode },
+//     country: { isoCode: countryCode },
+//   } = useLocalization();
+//
+//   const { data: products } = useShopQuery({
+//     query: RECOMMENDED_PRODUCTS_QUERY,
+//     variables: {
+//       count,
+//       productId,
+//       languageCode,
+//       countryCode,
+//     },
+//   });
+//
+//   const mergedProducts = products.recommended
+//     .concat(products.additional.nodes)
+//     .filter((value, index, array) => array.findIndex((value2) => value2.id === value.id) === index);
+//
+//   const originalProduct = mergedProducts.map((item) => item.id).indexOf(productId);
+//
+//   mergedProducts.splice(originalProduct, 1);
+//
+//   return <Slider title="Vous aimerez aussi" data={mergedProducts} />;
+// }
+//
+// function TopProducts({ count }) {
+//   const {
+//     data: { products },
+//   } = useShopQuery({
+//     query: TOP_PRODUCTS_QUERY,
+//     variables: {
+//       count,
+//     },
+//   });
 
-  // return <Slider title="Vos produits préférés" data={products.nodes} />;
-  return <div></div>;
-}
+// return <Slider title="Vos produits préférés" data={products.nodes} />;
+// return <div></div>;
+// }

@@ -55,7 +55,7 @@ export function AccountCreateForm() {
       password,
     });
 
-    navigate('/account');
+    // navigate('/account');
   }
 
   return (

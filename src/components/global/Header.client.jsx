@@ -87,7 +87,7 @@ function MobileHeader({ data, isLogged, isOpen, setIsOpen, isTopBannerOpen, cust
     </>
   );
 }
-function DesktopHeader({ data, isLogged, isOpen, setIsOpen, isPro }) {
+function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
   const toggleCartModal = () => setIsOpen(!isOpen);
 
   return (
