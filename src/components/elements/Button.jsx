@@ -31,9 +31,9 @@ export function Button({ as = 'button', className = '', variant = 'primary', wid
 
   if (props.to) {
     return (
-      <Component href={props.to} className={styles}>
+      <Link href={props.to} className={styles}>
         {props.children}
-      </Component>
+      </Link>
     );
   }
 
