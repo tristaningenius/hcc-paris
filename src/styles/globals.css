@@ -6,6 +6,11 @@
 @tailwind components;
 @tailwind utilities;
 
+a{
+  color : inherit !important;
+  text-decoration : inherit !important;
+}
+
 
 @layer utilities {
   .text-vertical {
