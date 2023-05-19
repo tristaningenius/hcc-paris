@@ -60,9 +60,18 @@ export function PurchaseMarkup({ quantity, productId }) {
       id: productIdString,
       quantity: quantityString,
     };
-    CoCart.post(`cart/add-item?cart_key=${cart_key}`, data).then(() => {
-      window.location.href = 'https://checkout.hhcparis.fr/commander/?cart_key=' + cart_key;
-    });
+
+    CoCart.post(`cart/add-item?cart_key=${cart_key}`, data)
+      .then((response) => {
+        console.log('Response Data:', response.data);
+        if (!cart_key) {
+          cart_key = response.data.cart_key;
+        }
+        window.location.href = 'https://checkout.hhcparis.fr/commander/?cart_key=' + cart_key;
+      })
+      .catch(() => {
+        alert("Vous n’avez pas choisi de poids, merci d'en sélectionner un avant l'ajout au panier.");
+      });
   };
 
   return (
