@@ -69,11 +69,11 @@ export function CollectionsImage({ data }) {
           ))}
           <div className="pt-6">
             <div className="flex items-start justify-between">
-              <p className="font-display text-4xl text-trans-50">DÉCOUVREZ NOS</p>
+              <p className="font-[teko] text-4xl text-trans-50">DÉCOUVREZ NOS</p>
               <Image src={logoHero} height="100%" width="100%" alt="logo HHC" className="w-8 text-neutral-600" />
             </div>
             <Link href={activeHandle}>
-              <h1 className="font-display text-6xl font-semibold uppercase">{activeName}</h1>
+              <h1 className="font-[teko] text-6xl font-semibold uppercase">{activeName}</h1>
             </Link>
           </div>
         </Swiper>

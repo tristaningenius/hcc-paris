@@ -168,15 +168,15 @@ function EmailField({ email, setEmail, emailError }) {
           <address className="not-italic">
             <ul className="flex flex-col gap-4 uppercase">
               <li className="text-2xl sm:text-3xl">
-                <span className="font-display text-xl sm:text-2xl">100 points</span> 5&nbsp;€&nbsp;de&nbsp;réduction.
+                <span className="font-[teko] text-xl sm:text-2xl">100 points</span> 5&nbsp;€&nbsp;de&nbsp;réduction.
                 <Divider color="20" className="mt-4" />
               </li>
               <li className="text-2xl sm:text-3xl">
-                <span className="font-display text-xl sm:text-2xl">200 points</span> 10&nbsp;€&nbsp;de&nbsp;réduction.
+                <span className="font-[teko] text-xl sm:text-2xl">200 points</span> 10&nbsp;€&nbsp;de&nbsp;réduction.
                 <Divider color="20" className="mt-4" />
               </li>
               <li className="text-2xl sm:text-3xl">
-                <span className="font-display text-xl sm:text-2xl">400 points</span> 20&nbsp;€&nbsp;de&nbsp;réduction.
+                <span className="font-[teko] text-xl sm:text-2xl">400 points</span> 20&nbsp;€&nbsp;de&nbsp;réduction.
                 <Divider color="20" className="mt-4" />
               </li>
             </ul>

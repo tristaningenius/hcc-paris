@@ -31,17 +31,19 @@ h3 {
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  background-color: #fbf6e9;
-  color: #242424;
-  font-size: calc(0.125vw + 16px);
-  scroll-behavior:smooth
-}
 
 body{
   font-family: 'Archivo Narrow', sans-serif !important;
-
+  background-color: #fbf6e9 !important;
+  color: #242424 !important;
+  font-size: calc(0.125vw + 16px) !important;
+  scroll-behavior:smooth;
 }
+
+dl,dt{
+  font-family: 'Archivo Narrow', sans-serif  !important;
+}
+
 
 html::-webkit-scrollbar {
   width: 0.7rem;

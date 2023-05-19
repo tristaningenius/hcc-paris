@@ -1,6 +1,6 @@
 export function Label({ className = '', variant = 'primary', ...props }) {
   const baseLabelClasses =
-    'inline px-2 pt-[3px] font-display text-center uppercase font-medium tracking-wide md:text-2xl';
+    'inline px-2 pt-[3px] font-[teko] text-center uppercase font-medium tracking-wide md:text-2xl';
   const variants = {
     primary: `${baseLabelClasses}  bg-primary-600 text-tertiary-100`,
     neutral: `${baseLabelClasses}  bg-neutral-600 text-tertiary-100`,

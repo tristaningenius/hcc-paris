@@ -35,7 +35,7 @@ export default function ProductGridByCollectionClient({ collection }) {
           />
         </div>
         <Divider className="max-lg:hidden" color="50" />
-        <div className="font-display mb-[-1rem] flex items-start justify-between text-5xl text-trans-50 lg:hidden">
+        <div className="mb-[-1rem] flex items-start justify-between font-[teko] text-5xl text-trans-50 lg:hidden">
           DÉCOUVREZ{' '}
           <Image src={logoStar} alt="HHC Paris Logo star" height="100%" width="100%" className="w-8 text-neutral-600" />
         </div>

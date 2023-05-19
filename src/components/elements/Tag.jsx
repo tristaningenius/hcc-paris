@@ -1,6 +1,6 @@
 export function Tag({ className = '', variant = 'primary', ...props }) {
   const baseTagClasses =
-    'inline py-2 pr-1 font-display text-center uppercase text-lg tracking-widest font-medium md:text-2xl';
+    'inline py-2 pr-1 font-[teko] text-center uppercase text-lg tracking-widest font-medium md:text-2xl';
   const variants = {
     primary: `${baseTagClasses}  bg-primary-600 text-tertiary-100`,
     neutral: `${baseTagClasses}  bg-neutral-600 text-tertiary-100`,

@@ -105,7 +105,7 @@ function CartLineItem({ item, cart_key }) {
             {/*  ? (merchandise?.selectedOptions || []).map((option) => (*/}
             {/*      <div key={option.name} className="flex items-center gap-2">*/}
             {/*        <div className="h-6 w-px bg-trans-20" />*/}
-            {/*        <span className="font-display text-xl font-light text-neutral-600">{option.value}</span>*/}
+            {/*        <span className="font-[teko] text-xl font-light text-neutral-600">{option.value}</span>*/}
             {/*      </div>*/}
             {/*    ))*/}
             {/*  : null}*/}
@@ -128,7 +128,7 @@ function CartLineItem({ item, cart_key }) {
             />
           </div>
           <div>
-            <div className="font-display text-2xl">{productPrice}</div>
+            <div className="font-[teko] text-2xl">{productPrice}</div>
           </div>
         </div>
       </div>
@@ -223,10 +223,12 @@ function OrderSummary({ cart }) {
   if (!totals) return null;
   return (
     <dl className="grid grid-cols-2 gap-2">
-      <dt className="font-display mt-0 text-3xl ">TOTAL TTC</dt>
-      <dd className="font-display totalToReplace mb-0 text-right text-3xl">{(totals.subtotal / 100).toFixed(2)} €</dd>
-      <dt className="mt-0 text-xs font-semibold text-neutral-500">Frais de livraison </dt>
-      <dd className="mb-0 text-right text-xs text-neutral-500">
+      <dt className="mt-0 font-[teko] text-3xl not-italic">TOTAL TTC</dt>
+      <dd className="totalToReplace mb-0 p-0 text-right font-[teko] text-3xl">
+        {(totals.subtotal / 100).toFixed(2)} €
+      </dd>
+      <dt className="mt-0 text-xs font-semibold not-italic text-neutral-500">Frais de livraison </dt>
+      <dd className="mb-0 p-0 text-right text-xs text-neutral-500">
         {totals.subtotal / 100 > 50 ? (
           'Gratuite !'
         ) : (
@@ -262,7 +264,7 @@ function CartCheckoutActions({ cart_key }) {
   return (
     <div
       className={
-        ' font-display flex min-h-[3rem] w-full select-none items-center justify-center gap-2 bg-primary-600 px-6 pt-1 text-center text-2xl font-medium uppercase tracking-wide text-tertiary-100 hover:bg-primary-700 active:bg-primary-800'
+        ' flex min-h-[3rem] w-full select-none items-center justify-center gap-2 bg-primary-600 px-6 pt-1 text-center font-[teko] text-2xl font-medium uppercase tracking-wide text-tertiary-100 hover:bg-primary-700 active:bg-primary-800'
       }
     >
       <Button

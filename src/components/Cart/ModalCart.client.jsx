@@ -73,7 +73,7 @@ export function ModalCart({ isOpen, setIsOpen, cart }) {
       >
         <form className="flex h-full w-full flex-col justify-between px-3 sm:px-6">
           <div className="flex justify-between py-3 sm:py-6">
-            <div className="font-display text-2xl font-medium tracking-wide text-neutral-600">PANIER</div>
+            <div className="font-[teko] text-2xl font-medium tracking-wide text-neutral-600">PANIER</div>
             <button type="button" aria-label="Fermer le panier" onClick={close} className="h-8">
               <IconLg icon="close" />
             </button>

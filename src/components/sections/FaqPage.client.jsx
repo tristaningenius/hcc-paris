@@ -52,7 +52,7 @@ export function FaqPage({ data }) {
         <aside className="mt-20 shrink-0 max-md:hidden">
           <nav className="sticky top-20">
             <ul className="flex flex-col gap-1">
-              <h1 className="font-display text-5xl font-semibold uppercase">FAQs</h1>
+              <h1 className="font-[teko] text-5xl font-semibold uppercase">FAQs</h1>
               {data.map((questions, index) => (
                 <li key={`link_${questions.fields[1].value}`}>
                   <Button

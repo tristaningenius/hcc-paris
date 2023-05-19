@@ -40,7 +40,7 @@ export function HomeContact() {
                 >
                   <>
                     <div>
-                      <span className="font-display text-xl sm:text-2xl">PARIS</span> 3 rue des Fossés Saint-Marcel -
+                      <span className="font-[teko] text-xl sm:text-2xl">PARIS</span> 3 rue des Fossés Saint-Marcel -
                       75005 Paris
                     </div>
                     <div>
@@ -58,8 +58,8 @@ export function HomeContact() {
                 >
                   <>
                     <div>
-                      <span className="font-display text-xl sm:text-2xl">Pontoise</span> 29 rue Alexandre Prachay -
-                      95300 Pontoise
+                      <span className="font-[teko] text-xl sm:text-2xl">Pontoise</span> 29 rue Alexandre Prachay - 95300
+                      Pontoise
                     </div>
                     <div>
                       <Icon icon="arrow_outward" size="50" />
@@ -76,7 +76,7 @@ export function HomeContact() {
                 >
                   <>
                     <div>
-                      <span className="font-display text-xl sm:text-2xl">Eaubonne</span> 40 rue Gabriel Péri - 95600
+                      <span className="font-[teko] text-xl sm:text-2xl">Eaubonne</span> 40 rue Gabriel Péri - 95600
                       Eaubonne
                     </div>
                     <div>

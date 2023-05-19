@@ -79,7 +79,7 @@ export function Footer() {
 // function FooterBanner({ message }) {
 //   return (
 //     <aside className="wrapper">
-//       <div className="marquee font-display bg-neutral-600 pb-3 pt-4 text-4xl uppercase text-tertiary-100 lg:pb-5 lg:pt-6 lg:text-6xl">
+//       <div className="marquee font-[teko] bg-neutral-600 pb-3 pt-4 text-4xl uppercase text-tertiary-100 lg:pb-5 lg:pt-6 lg:text-6xl">
 //         <PromoMessages message={message} />
 //         <PromoMessages message={message} />
 //       </div>

@@ -63,7 +63,7 @@ export function ProductCard({ product }) {
               <h3 className="font-semibold">{name}</h3>
             </figcaption>
 
-            <div className="font-display text-2xl">
+            <div className="font-[teko] text-2xl">
               <ProductPriceGramme
                 isGrosProduct={isGrosProduct}
                 collectionTitle={product.productCategories.nodes[0].slug}

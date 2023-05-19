@@ -93,7 +93,7 @@ export function PurchaseMarkup({ quantity, productId }) {
         type="button"
         className={`${
           isOutOfStock ? 'bg-primary-500' : 'bg-primary-600 hover:bg-primary-700 focus:bg-primary-800'
-        } font-display relative h-12 w-full items-center justify-center overflow-hidden text-center text-xl font-semibold uppercase tracking-wide text-tertiary-100`}
+        } relative h-12 w-full items-center justify-center overflow-hidden text-center font-[teko] text-xl font-semibold uppercase tracking-wide text-tertiary-100`}
       >
         <div ref={addedRef}>
           <div className="flex h-12 items-center justify-center">
@@ -110,7 +110,7 @@ export function PurchaseMarkup({ quantity, productId }) {
         <button
           type={'button'}
           onClick={(e) => goToCart(e, cartKey)}
-          className="font-display flex h-12 w-full items-center justify-center bg-neutral-600 px-6 text-center text-xl font-semibold uppercase tracking-wide text-tertiary-100 hover:bg-neutral-500 focus:bg-neutral-400"
+          className="flex h-12 w-full items-center justify-center bg-neutral-600 px-6 text-center font-[teko] text-xl font-semibold uppercase tracking-wide text-tertiary-100 hover:bg-neutral-500 focus:bg-neutral-400"
         >
           Acheter maintenant
         </button>

@@ -133,12 +133,12 @@ export function LoyaltyCard({ customerEmail, customerIdNum }) {
                     className="flex h-full min-h-[3rem] w-full items-center justify-between bg-tertiary-200 px-4 py-2 text-xl font-medium text-secondary-600 hover:text-primary-600 active:text-primary-800"
                   >
                     <p className="font-semibold">{loyaltyCode[1]}</p>
-                    <p className="font-display uppercase underline">Copier le code</p>
+                    <p className="font-[teko] uppercase underline">Copier le code</p>
                   </button>
                 ) : (
                   <div className="flex flex-wrap items-center justify-between px-4 py-2">
                     <div className="flex items-center gap-2">
-                      <span className="font-display mt-1 text-3xl uppercase">{name}</span>
+                      <span className="mt-1 font-[teko] text-3xl uppercase">{name}</span>
                       <span className="opacity-90">{cost}</span>
                     </div>
                     {loyaltyPoint > amount ? (
@@ -176,7 +176,7 @@ function RedeemButton({ redeem, customerEmail, customerIdNum, id, index, pending
     <button
       onClick={() => redeem(customerEmail, customerIdNum, id, index)}
       disabled={pending}
-      className="font-display text-xl font-medium uppercase text-tertiary-100 underline hover:text-tertiary-600 active:text-tertiary-800"
+      className="font-[teko] text-xl font-medium uppercase text-tertiary-100 underline hover:text-tertiary-600 active:text-tertiary-800"
     >
       recevoir le code
     </button>

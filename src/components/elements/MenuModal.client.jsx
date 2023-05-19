@@ -85,7 +85,7 @@ export function MenuModal({ isOpen, closeModal }) {
           <ul className="flex flex-col gap-4">
             <li className="border-b border-trans-50">
               <Button variant="inline" to={`/products`} onClick={toggleMenuModal}>
-                <h1 className="font-display inline-block min-h-[1rem] cursor-pointer pt-1 text-2xl  font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800">
+                <h1 className="inline-block min-h-[1rem] cursor-pointer pt-1 font-[teko] text-5xl  font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800">
                   TOUS LES PRODUITS
                 </h1>
               </Button>
@@ -93,8 +93,8 @@ export function MenuModal({ isOpen, closeModal }) {
             {collections.map((collection) => {
               return (
                 <li className="border-b border-trans-50" key={collection.id}>
-                  <Button variant="inline" to={`/collections/${collection.handle}`} onClick={toggleMenuModal}>
-                    <h1 className="font-display inline-block min-h-[1rem] cursor-pointer pt-1 text-2xl  font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800">
+                  <Button to={`/collections/${collection.handle}`} onClick={toggleMenuModal}>
+                    <h1 className="inline-block min-h-[1rem] pt-1 font-[teko] text-5xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800">
                       {collection.title.toUpperCase()}
                     </h1>
                   </Button>

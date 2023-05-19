@@ -29,7 +29,7 @@ export function ProductReviews({ productId }) {
         )
       )
       .catch((err) => console.error(err));
-  }, []);
+  });
 
   const stars = [
     <div key="1-star">
@@ -79,7 +79,7 @@ export function ProductReviews({ productId }) {
                 return (
                   <li key={review.id} className="flex gap-2 border-b border-trans-20 py-4">
                     <div>
-                      <div className="font-display flex h-12 w-12 select-none items-center justify-center rounded-full bg-neutral-600 pt-1 text-3xl text-tertiary-100">
+                      <div className="flex h-12 w-12 select-none items-center justify-center rounded-full bg-neutral-600 pt-1 font-[teko] text-3xl text-tertiary-100">
                         {review.user.display_name[0]}
                       </div>
                     </div>

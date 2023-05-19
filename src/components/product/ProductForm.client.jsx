@@ -61,13 +61,13 @@ export function ProductForm({ product }) {
   return (
     <Section noDivide>
       <dl className="grid w-full grid-cols-5 items-end justify-between border-trans-20 pb-6 pt-3 max-lg:border-b lg:order-1">
-        <dt className="font-display col-span-3 text-xl uppercase lg:text-3xl">
+        <dt className="col-span-3 font-[teko] text-xl uppercase not-italic lg:text-3xl">
           <Link href={`/collections/${productCategories.nodes[0].slug}`}>{productCategories.nodes[0].name}</Link>
         </dt>
         <dt className="col-span-3">
-          <h1 className=" text-4xl font-semibold lg:text-7xl">{name}</h1>
+          <h1 className=" text-4xl font-semibold uppercase not-italic lg:text-7xl">{name}</h1>
         </dt>
-        <dd className="font-display col-span-2 text-right text-3xl uppercase lg:text-4xl">
+        <dd className="col-span-2 text-right font-[teko] text-3xl uppercase lg:text-4xl">
           {type === 'VARIABLE' && (
             <ProductPriceGramme
               regularPrice={regularPrice}
@@ -96,7 +96,7 @@ export function ProductForm({ product }) {
           })}
         </div>
         <div className="flex flex-col gap-2 py-6">
-          <div className="font-display hidden text-right text-5xl sm:block">
+          <div className="hidden text-right font-[teko] text-5xl sm:block">
             {isGrosProduct ? (
               productPrice
             ) : (
@@ -107,7 +107,7 @@ export function ProductForm({ product }) {
               </>
             )}
           </div>
-          <div className="font-display flex flex-col items-start gap-4 text-5xl sm:flex-row">
+          <div className="flex flex-col items-start gap-4 font-[teko] text-5xl sm:flex-row">
             <div className="flex w-full flex-wrap-reverse justify-between gap-4 sm:max-w-[16rem]">
               <div className="flex w-full max-w-[16rem] items-center justify-between border border-neutral-600 pl-4 pr-4 sm:pl-8 sm:pr-8">
                 <button type="button" onClick={handleDecreaseQuantity} aria-label="Diminuer la quantité de 1">
@@ -118,7 +118,7 @@ export function ProductForm({ product }) {
                   <Icon size="32" icon="add" />
                 </button>
               </div>
-              <div className=" font-display text-right text-5xl sm:hidden">
+              <div className=" text-right font-[teko] text-5xl sm:hidden">
                 {isGrosProduct ? (
                   productPrice
                 ) : (
@@ -178,7 +178,7 @@ function OptionRadio({ name, valuewithprice, onData }) {
             />
             <label
               htmlFor={id}
-              className="text-trans-30 font-display cursor-pointer bg-tertiary-300 px-4 pt-1 text-2xl peer-checked:border peer-checked:border-trans-50  peer-checked:bg-tertiary-100 peer-checked:text-neutral-700"
+              className="text-trans-30 cursor-pointer bg-tertiary-300 px-4 pt-1 font-[teko] text-2xl peer-checked:border peer-checked:border-trans-50  peer-checked:bg-tertiary-100 peer-checked:text-neutral-700"
             >
               {/*replace in value all "-" between two number*/}
               {value.replace(/(?<=\d)-(?=\d)/g, '.')}

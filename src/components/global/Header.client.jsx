@@ -13,7 +13,7 @@ export function Header({ isLogged, customerEmail, customerIdNum, isPro }) {
   const cartStore = useCartStore();
   useEffect(() => {
     cartStore.fetch();
-  }, []);
+  });
   const cartValue = cartStore.cart;
   // useItemsStore((state) => state.setItems({ items: cartValue.item_count }));
 
@@ -59,7 +59,7 @@ function MobileHeader({ data, isLogged, isOpen, setIsOpen, isTopBannerOpen, cust
 
   return (
     <>
-      <nav className="font-display flex h-14 w-full items-center justify-between gap-4 px-3 text-2xl xl:hidden">
+      <nav className="flex h-14 w-full items-center justify-between gap-4 px-3 font-[teko] text-2xl xl:hidden">
         <Button variant="inline" onClick={toggleMenuModal}>
           <div className="w-16 overflow-visible text-left">{isMenuModalOpen ? 'FERMER' : 'MENU'}</div>
         </Button>
@@ -91,7 +91,7 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
   const toggleCartModal = () => setIsOpen(!isOpen);
 
   return (
-    <div className="min-h-12 font-display hidden w-full items-center justify-between gap-4 px-3 text-2xl xl:flex">
+    <div className="min-h-12 hidden w-full items-center justify-between gap-4 px-3 font-[teko] text-2xl xl:flex">
       <nav className="flex items-center gap-8">
         <Button variant="inline" to="/">
           <div className={'cursor-pointer'}>
@@ -101,7 +101,7 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
         <ul className="mb-0 flex flex-wrap gap-4 p-0">
           <li
             className={
-              'font-display inline-block min-h-[1rem] pt-1 text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+              'inline-block min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
           >
             <Button variant="inline" to="/products">
@@ -110,7 +110,7 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
           </li>
           <li
             className={
-              'font-display inline-block min-h-[1rem] pt-1 text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+              'inline-block  min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
           >
             <Button variant="inline" to={`/collections/vapes-hhc`}>
@@ -119,7 +119,7 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
           </li>
           <li
             className={
-              'font-display inline-block min-h-[1rem] pt-1 text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+              'inline-block  min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
           >
             <Button variant="inline" to={`/collections/resines-hhc`}>
@@ -128,7 +128,7 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
           </li>
           <li
             className={
-              'font-display inline-block min-h-[1rem] pt-1 text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+              'inline-block  min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
           >
             <Button variant="inline" to={`/collections/fleurs-hhc`}>
@@ -137,7 +137,7 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
           </li>
           <li
             className={
-              'font-display inline-block min-h-[1rem] pt-1 text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+              'inline-block  min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
           >
             <Button variant="inline" to={`/collections/huiles-hhc`}>
@@ -152,14 +152,20 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
             to="/pro/registerpro"
             variant="inline"
             className={
-              'font-display inline-block min-h-[1rem] pt-1 text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+              'inline-block min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
           >
             [je suis pro]
           </Button>
         )}
         <Button to="/#home-contact" variant="inline">
-          NOS MAGASINS
+          <div
+            className={
+              'inline-block min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+            }
+          >
+            NOS MAGASINS
+          </div>
         </Button>
         {/*{isLogged ? (*/}
         {/*  <Button to="/account" variant="secondary" className="h-full">*/}
@@ -170,9 +176,11 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
         {/*    SE CONNECTER*/}
         {/*  </Button>*/}
         {/*)}*/}
-        <Button variant="inline" onClick={toggleCartModal}>
-          PANIER
-          <CartBadge data={data} />
+        <Button variant="inline" className={'pt-0'} onClick={toggleCartModal}>
+          <div>
+            PANIER
+            <CartBadge data={data} />
+          </div>
         </Button>
       </div>
     </div>
@@ -183,10 +191,10 @@ function CartBadge({ data }) {
   if (!data) return null;
   const { item_count } = data;
   if (!item_count) {
-    return <span>[0]</span>;
+    return <div className={'inline'}> [0]</div>;
   }
 
-  return <span>[{item_count}]</span>;
+  return <div className={'inline'}> [{item_count}]</div>;
 }
 
 // function MessageBanner({ promoMessage, setIsTopBannerOpen }) {

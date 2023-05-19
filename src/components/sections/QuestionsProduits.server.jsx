@@ -35,7 +35,7 @@ export function QuestionsProduits() {
       {/*</Heading>*/}
       <div className="flex flex-col gap-8 md:flex-row-reverse md:justify-center md:gap-20">
         <aside className="text-right">
-          {/*<h2 className="font-display text-5xl font-semibold uppercase max-md:hidden">*/}
+          {/*<h2 className="font-[teko] text-5xl font-semibold uppercase max-md:hidden">*/}
           {/*  {collectionName ? `À propos de nos ${collectionName}` : questionsTitle}*/}
           {/*</h2>*/}
           <Button className="group" variant="linkFooter" to="/faqs">

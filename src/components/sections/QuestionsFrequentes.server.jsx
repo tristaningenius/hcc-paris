@@ -9,7 +9,7 @@ export function QuestionsFrequentes({ faq }) {
       <div className="flex flex-col gap-8 md:flex-row-reverse md:justify-center md:gap-20">
         <div className="w-full max-w-2xl">{<Accordion data={faq} />}</div>
         <aside className="text-right">
-          <h2 className="font-display text-5xl font-semibold uppercase max-md:hidden">Questions Fréquentes</h2>
+          <h2 className="font-[teko] text-5xl font-semibold uppercase max-md:hidden">Questions Fréquentes</h2>
           <Button className="group" variant="linkFooter" to="/faqs">
             <>
               Consultez toutes les réponses

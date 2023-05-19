@@ -20,7 +20,7 @@ export function Heading({
     narrow: 'max-w-prose-narrow',
     wide: 'max-w-prose-wide',
   };
-  const baseHeadingClasses = 'font-display uppercase';
+  const baseHeadingClasses = 'font-[teko] uppercase';
 
   const styles = `${className} ${baseHeadingClasses} ${widths[width]} ${sizes[size]}`;
 
