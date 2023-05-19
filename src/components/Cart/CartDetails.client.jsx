@@ -8,12 +8,17 @@ const CoCart = new CoCartAPI({
   url: 'https://checkout.hhcparis.fr',
   version: 'cocart/v2',
 });
-if (typeof window !== 'undefined') {
-  var cart_key = localStorage.getItem('cart_key') || '';
-}
 
 export function CartDetails({ close, cart }) {
-  if (!cart) {
+  console.log(cart);
+  const [cart_key, setCartKey] = useState('');
+  console.log(cart_key);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCartKey(localStorage.getItem('cart_key'));
+    }
+  }, []);
+  if (cart.item_count === 0) {
     return <CartEmpty close={close} />;
   }
   const { id, totals, items } = cart;
@@ -28,7 +33,7 @@ export function CartDetails({ close, cart }) {
         className="scrollbar-thin scrollbar-thumb-trans-20 hover:scrollbar-thumb-trans-50 h-full overflow-y-scroll border-t border-trans-50"
       >
         {items?.map((item) => {
-          return <CartLineItem key={id} item={item} />;
+          return <CartLineItem key={id} item={item} cart_key={cart_key} />;
         })}
       </ul>
       {isShippingFree && (
@@ -43,8 +48,8 @@ export function CartDetails({ close, cart }) {
           !isShippingFree && `drop-shadow-[0px_-24px_16px_rgba(251,246,233,1)]`
         } sm:pb-6`}
       >
-        <OrderSummary cart={cart} />
-        <CartCheckoutActions />
+        <OrderSummary cart={cart} cart_key={cart_key} />
+        <CartCheckoutActions cart_key={cart_key} />
       </section>
     </>
   );
@@ -53,7 +58,7 @@ export function CartDetails({ close, cart }) {
 function CartEmpty({ close }) {
   return (
     <div className="flex h-full w-full flex-col justify-center gap-4 px-3">
-      <Heading size="section" className="text-center">
+      <Heading size="section-xs" className="text-center">
         Votre panier&nbsp;est&nbsp;vide
       </Heading>
       <Button onClick={close} to="/">
@@ -62,8 +67,10 @@ function CartEmpty({ close }) {
     </div>
   );
 }
-function CartLineItem({ item }) {
+function CartLineItem({ item, cart_key }) {
   const [newQuantity, setNewQuantity] = useState(item.quantity.value);
+  const [alreadyClicked, setAlreadyClicked] = useState(false);
+
   if (!item) return null;
   // const { id: lineId, quantity, merchandise } = useCartLine();
   // const isSelectedOption = merchandise?.selectedOptions[0].value === 'Default Title';
@@ -105,7 +112,7 @@ function CartLineItem({ item }) {
           </div>
           <button
             type={'button'}
-            onClick={(event) => linesRemove(event, item_key)}
+            onClick={(event) => linesRemove(event, item_key, cart_key, alreadyClicked, setAlreadyClicked)}
             className={'buttonEvent flex h-6 w-6 justify-center'}
           >
             <Icon size="20" color="fill-trans-50" className={'buttonEvent'} icon="close" />
@@ -117,6 +124,7 @@ function CartLineItem({ item }) {
               quantity={item.quantity.value}
               setNewQuantity={setNewQuantity}
               item_key={item_key}
+              cart_key={cart_key}
             />
           </div>
           <div>
@@ -127,7 +135,7 @@ function CartLineItem({ item }) {
     </li>
   );
 }
-function CartLineQuantityAdjust({ quantity, setNewQuantity, item_key }) {
+function CartLineQuantityAdjust({ quantity, setNewQuantity, item_key, cart_key }) {
   const [quantityVal, setQuantityVal] = useState(quantity);
 
   const handleQuantityMore = () => {
@@ -232,8 +240,9 @@ function OrderSummary({ cart }) {
   );
 }
 
-function linesRemove(event, item_key) {
-  const cart_key = localStorage.getItem('cart_key') || '';
+function linesRemove(event, item_key, cart_key, alreadyClicked, setAlreadyClicked) {
+  if (alreadyClicked) return;
+  setAlreadyClicked(true);
   const div = event.target.closest('.myDiv');
   div.classList.add('hide');
   setTimeout(() => {
@@ -242,13 +251,14 @@ function linesRemove(event, item_key) {
   CoCart.delete(`cart/item/${item_key}?cart_key=${cart_key}`)
     .then(() => {
       console.log('removed');
+      setAlreadyClicked(false);
     })
     .catch(() => {
       alert("une erreur s'est produite, merci de reessayer plus tard");
     });
 }
 
-function CartCheckoutActions() {
+function CartCheckoutActions({ cart_key }) {
   return (
     <div
       className={

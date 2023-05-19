@@ -1,5 +1,5 @@
 import CoCartAPI from '@cocart/cocart-rest-api';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap, Power4 } from 'gsap';
 import { useCartStore } from '../elements/cartStore';
 
@@ -7,17 +7,22 @@ const CoCart = new CoCartAPI({
   url: 'https://checkout.hhcparis.fr',
   version: 'cocart/v2',
 });
-if (typeof window !== 'undefined') {
-  var cart_key = localStorage.getItem('cart_key') || '';
-}
+
 export function PurchaseMarkup({ quantity, productId }) {
   // const { selectedVariant } = useProductOptions();
   // const isOutOfStock = product?.manageStock && product?.stockQuantity <= 0;
-
+  const [cartKey, setCartKey] = useState('');
   const isOutOfStock = false;
+  let endpoint = 'cart/add-item';
   const quantityString = quantity.toString();
   const productIdString = productId.toString();
   const cartStore = useCartStore();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCartKey(localStorage.getItem('cart_key'));
+    }
+  }, []);
 
   const addtocart = () => {
     let data = {
@@ -25,8 +30,13 @@ export function PurchaseMarkup({ quantity, productId }) {
       quantity: quantityString,
     };
 
-    CoCart.post(`cart/add-item?cart_key=${cart_key}`, data)
+    if (cartKey) {
+      endpoint += `?cart_key=${cartKey}`;
+    }
+
+    CoCart.post(endpoint, data)
       .then((response) => {
+        console.log('Response Data:', response.data);
         localStorage.setItem('cart_key', response.data.cart_key);
         cartStore.removeCard();
         cartStore.fetch();
@@ -56,18 +66,20 @@ export function PurchaseMarkup({ quantity, productId }) {
 
   const goToCart = (e) => {
     e.preventDefault();
+    let endpoint = 'cart/add-item';
+    if (cartKey) {
+      endpoint += `?cart_key=${cartKey}`;
+    }
+
     let data = {
       id: productIdString,
       quantity: quantityString,
     };
 
-    CoCart.post(`cart/add-item?cart_key=${cart_key}`, data)
+    CoCart.post(endpoint, data)
       .then((response) => {
         console.log('Response Data:', response.data);
-        if (!cart_key) {
-          cart_key = response.data.cart_key;
-        }
-        window.location.href = 'https://checkout.hhcparis.fr/commander/?cart_key=' + cart_key;
+        window.location.href = 'https://checkout.hhcparis.fr/commander/?cart_key=' + response.data.cart_key;
       })
       .catch(() => {
         alert("Vous n’avez pas choisi de poids, merci d'en sélectionner un avant l'ajout au panier.");
@@ -77,7 +89,7 @@ export function PurchaseMarkup({ quantity, productId }) {
   return (
     <>
       <button
-        onClick={handleAddToCart}
+        onClick={(cartKey) => handleAddToCart(cartKey)}
         type="button"
         className={`${
           isOutOfStock ? 'bg-primary-500' : 'bg-primary-600 hover:bg-primary-700 focus:bg-primary-800'
@@ -97,7 +109,7 @@ export function PurchaseMarkup({ quantity, productId }) {
       ) : (
         <button
           type={'button'}
-          onClick={(e) => goToCart(e)}
+          onClick={(e) => goToCart(e, cartKey)}
           className="font-display flex h-12 w-full items-center justify-center bg-neutral-600 px-6 text-center text-xl font-semibold uppercase tracking-wide text-tertiary-100 hover:bg-neutral-500 focus:bg-neutral-400"
         >
           Acheter maintenant
