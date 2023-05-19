@@ -98,7 +98,7 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
             <LogoStar className="logo-rotate fill-primary-600" size="1.5rem" />
           </div>
         </Button>
-        <ul className="flex flex-wrap gap-4">
+        <ul className="mb-0 flex flex-wrap gap-4 p-0">
           <li
             className={
               'font-display inline-block min-h-[1rem] pt-1 text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'

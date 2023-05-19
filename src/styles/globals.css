@@ -11,6 +11,10 @@ a{
   text-decoration : inherit !important;
 }
 
+h3 {
+  font-size: inherit !important;
+}
+
 
 @layer utilities {
   .text-vertical {
@@ -28,11 +32,15 @@ a{
 }
 
 html {
-  font-family: 'Archivo Narrow', sans-serif;
   background-color: #fbf6e9;
   color: #242424;
   font-size: calc(0.125vw + 16px);
   scroll-behavior:smooth
+}
+
+body{
+  font-family: 'Archivo Narrow', sans-serif !important;
+
 }
 
 html::-webkit-scrollbar {
