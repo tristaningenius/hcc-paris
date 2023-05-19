@@ -1,13 +1,16 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
-export function Modal({ close, children }) {
+export function Modal({ children }) {
   const backgroundRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(true);
 
   function handleBackgroundClick(event) {
     if (event.target === backgroundRef.current) {
-      close();
+      setIsOpen(false);
     }
   }
+
+  if (!isOpen) return null;
 
   return (
     <aside className="fixed inset-0 z-50 h-screen w-screen">

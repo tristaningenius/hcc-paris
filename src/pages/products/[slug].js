@@ -5,11 +5,7 @@ import { ProductGallery, ProductForm } from 'components/product/';
 import { Accordion } from 'components/elements';
 
 export default function Product({ product }) {
-  // const {
-  //   language: { isoCode: languageCode },
-  //   country: { isoCode: countryCode }
-  // } = useLocalization();
-
+  console.log(product);
   const { description } = product;
 
   return (
@@ -36,11 +32,9 @@ export default function Product({ product }) {
               />
             )}
           </Section>
-          <Accordion data={product.metaAccordion?.references.nodes} />
+          <Accordion data={product.accordeonProduit} type={'allProducts'} />
         </Section>
       </Section>
-      <Section gap="large">{/*  <ProductSwimlane title="Related Products" data={id} />*/}</Section>
-
       {/*<QuestionsProduits collectionName={collection[0]?.title} />*/}
     </Layout>
   );

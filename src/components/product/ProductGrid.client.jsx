@@ -10,7 +10,7 @@ export function ProductsLayout({ data }) {
   return (
     <>
       <Section gap="default">
-        <div className="h-[250px] max-lg:hidden">
+        <div className="logo h-[250px] max-lg:hidden">
           <LogoTextCollection collectionHandle={collection.handle ?? 'produits'} />
         </div>
         {collection.image ? (

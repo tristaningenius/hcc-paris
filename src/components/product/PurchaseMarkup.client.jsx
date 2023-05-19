@@ -8,11 +8,10 @@ const CoCart = new CoCartAPI({
   version: 'cocart/v2',
 });
 
-export function PurchaseMarkup({ quantity, productId }) {
+export function PurchaseMarkup({ quantity, productId, stockStatus }) {
   // const { selectedVariant } = useProductOptions();
-  // const isOutOfStock = product?.manageStock && product?.stockQuantity <= 0;
+  const isOutOfStock = stockStatus === 'OUT_OF_STOCK';
   const [cartKey, setCartKey] = useState('');
-  const isOutOfStock = false;
   let endpoint = 'cart/add-item';
   const quantityString = quantity.toString();
   const productIdString = productId.toString();
@@ -36,11 +35,9 @@ export function PurchaseMarkup({ quantity, productId }) {
 
     CoCart.post(endpoint, data)
       .then((response) => {
-        console.log('Response Data:', response.data);
         localStorage.setItem('cart_key', response.data.cart_key);
         cartStore.removeCard();
         cartStore.fetch();
-        console.log('Response Data:', response.data);
       })
       .catch(() => {
         alert("Vous n’avez pas choisi de poids, merci d'en sélectionner un avant l'ajout au panier.");
@@ -49,6 +46,7 @@ export function PurchaseMarkup({ quantity, productId }) {
   const addedRef = useRef(null);
 
   const handleAddToCart = () => {
+    if (isOutOfStock) return;
     addtocart();
     const tl = gsap.timeline();
     tl.to(addedRef.current, {
@@ -78,7 +76,6 @@ export function PurchaseMarkup({ quantity, productId }) {
 
     CoCart.post(endpoint, data)
       .then((response) => {
-        console.log('Response Data:', response.data);
         window.location.href = 'https://checkout.hhcparis.fr/commander/?cart_key=' + response.data.cart_key;
       })
       .catch(() => {
@@ -89,7 +86,7 @@ export function PurchaseMarkup({ quantity, productId }) {
   return (
     <>
       <button
-        onClick={(cartKey) => handleAddToCart(cartKey)}
+        onClick={handleAddToCart}
         type="button"
         className={`${
           isOutOfStock ? 'bg-primary-500' : 'bg-primary-600 hover:bg-primary-700 focus:bg-primary-800'

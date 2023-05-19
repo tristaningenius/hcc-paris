@@ -18,11 +18,11 @@ export function Footer() {
                 Tout nos produits
               </Button>
             </li>
-            {/*<li>*/}
-            {/*  <Button variant="linkFooter" to="/account">*/}
-            {/*    Mon compte*/}
-            {/*  </Button>*/}
-            {/*</li>*/}
+            <li>
+              <Button variant="linkFooter" to="https://checkout.hhcparis.fr/mon-compte/">
+                Mon compte
+              </Button>
+            </li>
             {/*<li>*/}
             {/*  <Button variant="linkFooter" to="/pro/registerpro">*/}
             {/*    [Je suis pro]*/}

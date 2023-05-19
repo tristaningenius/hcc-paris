@@ -59,8 +59,8 @@ export function ProductCard({ product }) {
           </div>
           <div className={`flex justify-between ${!availableForSale ? 'opacity-70' : undefined}`}>
             <figcaption>
-              <div className="font-regular text-sm">{category}</div>
-              <h3 className="font-semibold">{name}</h3>
+              <div className="font-regular text-sm not-italic">{category}</div>
+              <h3 className="font-semibold not-italic">{name}</h3>
             </figcaption>
 
             <div className="font-[teko] text-2xl">

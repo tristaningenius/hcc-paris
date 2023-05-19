@@ -471,6 +471,10 @@ export const QUERY_PRODUCT_BY_SLUG = gql`
       excerpt
       sku
       databaseId
+      accordeonProduit {
+        content
+        title
+      }
       attributes {
         nodes {
           name
@@ -496,18 +500,21 @@ export const QUERY_PRODUCT_BY_SLUG = gql`
         salePrice
         manageStock
         stockQuantity
+        stockStatus
       }
       ... on VariableProduct {
         regularPrice
         salePrice
         manageStock
         stockQuantity
+        stockStatus
         variations {
           nodes {
             id
             sku
             name
             regularPrice
+            stockStatus
             databaseId
             salePrice
             metaData {

@@ -19,9 +19,18 @@ export function ProductForm({ product }) {
     regularPrice,
     salePrice,
     productCategories,
+    stockStatus,
     type,
     isGrosProduct = false,
   } = product;
+  console.log(product);
+
+  let variationsOutOfStock = [];
+  variations.nodes.forEach((variation) => {
+    if (variation.stockStatus === 'OUT_OF_STOCK') {
+      variationsOutOfStock.push(variation.name.split('-')[1].trim().toLowerCase().replace(' ', '-'));
+    }
+  });
 
   const baseRegularPrice = regularPrice.split('&')[0];
   const isPromo = isDiscounted(regularPrice, salePrice);
@@ -90,7 +99,12 @@ export function ProductForm({ product }) {
             return (
               <div key={name} className="border-trans-20 py-6 max-lg:border-b">
                 <legend className="mb-2 text-trans-50">{name}</legend>
-                <OptionRadio name={name} valuewithprice={options} onData={handlePriceChange} />
+                <OptionRadio
+                  name={name}
+                  valuewithprice={options}
+                  onData={handlePriceChange}
+                  variationsOutOfStock={variationsOutOfStock}
+                />
               </div>
             );
           })}
@@ -131,7 +145,11 @@ export function ProductForm({ product }) {
               </div>
             </div>
             <div className="flex w-full flex-col gap-2">
-              <PurchaseMarkup quantity={quantity} productId={productIdPickup ?? product.databaseId} />
+              <PurchaseMarkup
+                quantity={quantity}
+                productId={productIdPickup ?? product.databaseId}
+                stockStatus={stockStatus}
+              />
             </div>
           </div>
         </div>
@@ -141,7 +159,7 @@ export function ProductForm({ product }) {
   );
 }
 
-function OptionRadio({ name, valuewithprice, onData }) {
+function OptionRadio({ name, valuewithprice, onData, variationsOutOfStock }) {
   const [selectedOptions, setSelectedOption] = useState({ valuewithprice });
   // sort the variation
   let arraySort = [...valuewithprice];
@@ -154,6 +172,9 @@ function OptionRadio({ name, valuewithprice, onData }) {
     return 0;
   });
 
+  // array difference between variations and variations out of stock
+  const filteredVariationsOutOfStock = sortedValuewithprice.filter((x) => !variationsOutOfStock.includes(x));
+
   const handleChange = (value, name) => {
     setSelectedOption(value);
     onData(value, name);
@@ -161,7 +182,7 @@ function OptionRadio({ name, valuewithprice, onData }) {
 
   return (
     <fieldset className="flex flex-wrap gap-4 border-none">
-      {sortedValuewithprice.map((value) => {
+      {filteredVariationsOutOfStock.map((value) => {
         const checked = selectedOptions === value;
         const id = `option-${name}-${value}`;
 

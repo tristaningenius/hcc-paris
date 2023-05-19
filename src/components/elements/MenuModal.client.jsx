@@ -94,7 +94,7 @@ export function MenuModal({ isOpen, closeModal }) {
               return (
                 <li className="border-b border-trans-50" key={collection.id}>
                   <Button to={`/collections/${collection.handle}`} onClick={toggleMenuModal}>
-                    <h1 className="inline-block min-h-[1rem] pt-1 font-[teko] text-5xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800">
+                    <h1 className="inline-block min-h-[1rem] cursor-pointer pt-1 font-[teko] text-5xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800">
                       {collection.title.toUpperCase()}
                     </h1>
                   </Button>
@@ -114,9 +114,15 @@ export function MenuModal({ isOpen, closeModal }) {
         {/*        </div>*/}
         {/*      )}*/}
 
-        {/*      <Button variant="secondary" to="/account" onClick={toggleMenuModal}>*/}
-        {/*        <>MON COMPTE {isPro && 'PRO'}</>*/}
-        {/*      </Button>*/}
+        <Button variant="secondary" to="https://checkout.hhcparis.fr/mon-compte/" onClick={toggleMenuModal}>
+          <div
+            className={
+              'inline-block min-h-[1rem] cursor-pointer pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+            }
+          >
+            MON COMPTE{' '}
+          </div>
+        </Button>
         {/*    </div>*/}
         {/*  ) : (*/}
         {/*    <div className="flex flex-col gap-2">*/}

@@ -41,7 +41,7 @@ export function CollectionsImageDesktop({ data }) {
                   style={{ backgroundImage: `url(${collection.image})` }}
                 />
               </div>
-              <div className="ease-[cubic-bezier(0.16, 1, 0.3, 1)] h-0 pt-2 transition-all duration-500 group-hover:h-[10vw]">
+              <div className="logo ease-[cubic-bezier(0.16, 1, 0.3, 1)] h-0 pt-2 transition-all duration-500 group-hover:h-[10vw]">
                 <LogoTextCollectionHero collectionHandle={collection.handle} />
               </div>
             </div>

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Helmet } from 'react-helmet';
 import useSite from 'hooks/use-site';
 import { helmetSettingsFromMetadata } from 'lib/site';
-
+import { AgePopup } from '../global';
 import Main from 'components/Main';
 import { Header } from 'components/global/Header.client';
 import { Footer } from 'components/global/Footer.server';
@@ -60,6 +60,7 @@ const Layout = ({ children }) => {
       <Helmet {...helmetSettings} />
 
       <Header data={''} isLogged={'false'} promoMessage={''} customerEmail={''} customerIdNum={''} isPro={''} />
+      <AgePopup />
 
       <Main>{children}</Main>
 

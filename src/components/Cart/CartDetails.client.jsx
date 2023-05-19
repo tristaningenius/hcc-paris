@@ -10,9 +10,7 @@ const CoCart = new CoCartAPI({
 });
 
 export function CartDetails({ close, cart }) {
-  console.log(cart);
   const [cart_key, setCartKey] = useState('');
-  console.log(cart_key);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setCartKey(localStorage.getItem('cart_key'));
@@ -90,7 +88,7 @@ function CartLineItem({ item, cart_key }) {
   const productPrice = <span className="break-keep">{formattedPrice}</span>;
 
   return (
-    <li key={id} className="myDiv flex gap-4 border-b border-trans-20 py-6">
+    <li key={id} className="myDiv flex gap-4 border-trans-20 py-6">
       <div>
         <Image className="rounded-2xl bg-tertiary-100" src={featured_image} alt={name} width={168} height={168} />
       </div>
@@ -209,7 +207,11 @@ function OrderSummary({ cart }) {
 
     document.addEventListener('click', (e) => {
       // find the first parent who is a button
-      if (e.target.parentElement.classList.contains('buttonEvent') || e.target.closest('.buttonEvent')) {
+
+      if (
+        (e.target.parentElement && e.target.parentElement.classList.contains('buttonEvent')) ||
+        e.target.closest('.buttonEvent')
+      ) {
         setTimeout(() => {
           calculateTotal();
         }, 1000);

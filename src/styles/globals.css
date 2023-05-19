@@ -142,6 +142,10 @@ html::-webkit-scrollbar-thumb:hover {
   gap: 1rem;
 }
 
+.styled-text_container::after{
+  content: '';
+}
+
 .article__container h2,
 .styled-text_container h2 {
   font-size: 2.5rem;
@@ -162,22 +166,21 @@ html::-webkit-scrollbar-thumb:hover {
   padding-top: 1.5rem;
 }
 
-.article__container ul,
-.styled-text_container ul {
+
+.article__container ul{
   font-size: 2rem;
   line-height: normal;
   padding-top: 2rem;
 }
 
-.article__container li,
-.styled-text_container li {
+.article__container li{
   font-size: 2rem;
   line-height: normal;
   padding-top: 2rem;
 }
 
-span{
-  display: block !important;
+.logo span{
+  display: block !important ;
   height: 100% !important;
 }
 

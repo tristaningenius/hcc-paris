@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import Cookies from 'js-cookie';
-import { Modal, Heading, Button, Text } from 'components';
+import { Heading, Button, Text } from 'components/elements';
+import { Modal } from 'components/global';
 
 export function AgePopup() {
   const [showPopup, setShowPopup] = useState(false);
@@ -27,7 +28,7 @@ export function AgePopup() {
 
   return (
     showPopup && (
-      <Modal>
+      <Modal close={showPopup}>
         <Heading size="section" className="text-center">
           {refused ? 'Accès refusé' : <span>Avez-vous plus de 18&nbsp;ans&nbsp;?</span>}
         </Heading>

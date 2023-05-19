@@ -64,8 +64,8 @@ function MobileHeader({ data, isLogged, isOpen, setIsOpen, isTopBannerOpen, cust
           <div className="w-16 overflow-visible text-left">{isMenuModalOpen ? 'FERMER' : 'MENU'}</div>
         </Button>
         <Link href="/">
-          <div onClick={() => setIsMenuModalOpen(false)}>
-            <Image src={logoTextFull} alt="Logo de HHC Paris" width="100%" height="100%" className="h-6" />
+          <div onClick={() => setIsMenuModalOpen(false)} className={'pt-3'}>
+            <Image src={logoTextFull} alt="Logo de HHC Paris" width="100%" height="100%" />
           </div>
         </Link>
         <Button variant="inline" onClick={open}>
@@ -161,21 +161,21 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
         <Button to="/#home-contact" variant="inline">
           <div
             className={
-              'inline-block min-h-[1rem] pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+              'inline-block min-h-[1rem] cursor-pointer pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
           >
             NOS MAGASINS
           </div>
         </Button>
-        {/*{isLogged ? (*/}
-        {/*  <Button to="/account" variant="secondary" className="h-full">*/}
-        {/*    MON COMPTE*/}
-        {/*  </Button>*/}
-        {/*) : (*/}
-        {/*  <Button to="/account" variant="secondary" className="h-full">*/}
-        {/*    SE CONNECTER*/}
-        {/*  </Button>*/}
-        {/*)}*/}
+        <Button to="https://checkout.hhcparis.fr/mon-compte/" variant="secondary" className="h-full">
+          <div
+            className={
+              'inline-block min-h-[1rem] cursor-pointer pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
+            }
+          >
+            MON COMPTE
+          </div>
+        </Button>
         <Button variant="inline" className={'pt-0'} onClick={toggleCartModal}>
           <div>
             PANIER

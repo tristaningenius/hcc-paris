@@ -13,10 +13,10 @@ export default function ProductGridByCollectionClient({ collection }) {
   return (
     <>
       <Section gap="default">
-        <div className="h-[250px] max-lg:hidden">
+        <div className="logo h-[250px] max-lg:hidden">
           <LogoTextCollection collectionHandle={collection.slug ?? 'produits'} />
         </div>
-        <div className={'h-[450px]'}>
+        <div className={'logo h-[450px]'}>
           <Image
             alt={`Photo de ${collection.title}`}
             src={

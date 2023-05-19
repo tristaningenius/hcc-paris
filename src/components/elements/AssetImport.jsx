@@ -13,7 +13,7 @@ import produit from '../../assets/logo-produit.svg';
 
 export function LogoText() {
   return (
-    <div className={'h-[300px]'}>
+    <div className={'logo h-[300px]'}>
       <Image src={logoText} width="100%" height="100%" className="z-0 w-full" alt="HHC Paris Logo text" />
     </div>
   );

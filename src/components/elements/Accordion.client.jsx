@@ -5,6 +5,7 @@ import { Icon } from './IconImport';
 import { Text } from 'components/elements';
 
 export function Accordion({ data }) {
+  console.log('dataaccordeon', data);
   const [activeIndex, setActiveIndex] = useState(-1);
   const contentRefs = useRef([]);
 
@@ -36,7 +37,7 @@ export function Accordion({ data }) {
   };
 
   return (
-    <div className="w-full border-b border-trans-50">
+    <div className="w-full border-trans-50">
       {data?.map((question, i) => (
         <AccordionItem
           key={i}
