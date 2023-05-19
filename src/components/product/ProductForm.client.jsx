@@ -11,6 +11,7 @@ export function ProductForm({ product }) {
   const [productIdPickup, setProductIdPickup] = useState(null);
   // const [pricePerGramme, setPricePerGramme] = useState(null);
   const [newPrice, setNewPrice] = useState(0);
+  let variationsOutOfStock = [];
   const {
     variations,
     name,
@@ -25,12 +26,13 @@ export function ProductForm({ product }) {
   } = product;
   console.log(product);
 
-  let variationsOutOfStock = [];
-  variations.nodes.forEach((variation) => {
-    if (variation.stockStatus === 'OUT_OF_STOCK') {
-      variationsOutOfStock.push(variation.name.split('-')[1].trim().toLowerCase().replace(' ', '-'));
-    }
-  });
+  if (type === 'VARIATION') {
+    variations.nodes.forEach((variation) => {
+      if (variation.stockStatus === 'OUT_OF_STOCK') {
+        variationsOutOfStock.push(variation.name.split('-')[1].trim().toLowerCase().replace(' ', '-'));
+      }
+    });
+  }
 
   const baseRegularPrice = regularPrice.split('&')[0];
   const isPromo = isDiscounted(regularPrice, salePrice);
