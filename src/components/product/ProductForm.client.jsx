@@ -26,7 +26,7 @@ export function ProductForm({ product }) {
   } = product;
   console.log(product);
 
-  if (type === 'VARIATION') {
+  if (type === 'VARIABLE') {
     variations.nodes.forEach((variation) => {
       if (variation.stockStatus === 'OUT_OF_STOCK') {
         variationsOutOfStock.push(variation.name.split('-')[1].trim().toLowerCase().replace(' ', '-'));
