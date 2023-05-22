@@ -6,7 +6,6 @@ import { MenuModal } from 'components/elements/MenuModal.client';
 import logoTextFull from '../../assets/logo-text-full.svg';
 import { ModalCart } from '../Cart';
 import { useCartStore } from 'components/elements/cartStore';
-import { gsap } from 'gsap';
 
 export function Header({ isLogged, customerEmail, customerIdNum, isPro }) {
   const [isPanierModalOpen, setIsPanierModalOpen] = useState(false);

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Section, Heading, Divider, Icon, Button } from 'components/elements';
 
 export function HomeContact() {
