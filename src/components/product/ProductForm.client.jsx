@@ -24,7 +24,6 @@ export function ProductForm({ product }) {
     type,
     isGrosProduct = false,
   } = product;
-  console.log(product);
   let variationStock = [];
   if (type === 'VARIABLE') {
     variations.nodes.forEach((variation) => {

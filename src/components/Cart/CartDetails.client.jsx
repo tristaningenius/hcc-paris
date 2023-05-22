@@ -222,7 +222,6 @@ function OrderSummary({ cart }) {
     return null;
   }
   const { totals } = cart;
-  console.log(totals);
   if (!totals) return null;
   return (
     <dl className="grid grid-cols-2 gap-2">

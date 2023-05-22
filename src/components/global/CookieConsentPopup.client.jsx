@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { gsap, Power2 } from 'gsap';
 
 import Cookies from 'js-cookie';
-import { Heading, Button } from 'components';
+import { Heading, Button } from 'components/elements';
 
 export function CookieConsentPopup() {
   const [showPopup, setShowPopup] = useState(false);

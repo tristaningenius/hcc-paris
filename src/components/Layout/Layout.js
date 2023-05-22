@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import useSite from 'hooks/use-site';
 import { helmetSettingsFromMetadata } from 'lib/site';
 import { AgePopup } from '../global';
+import { CookieConsentPopup } from 'components/global/CookieConsentPopup.client';
 import Main from 'components/Main';
 import { Header } from 'components/global/Header.client';
 import { Footer } from 'components/global/Footer.server';
@@ -61,6 +62,7 @@ const Layout = ({ children }) => {
 
       <Header data={''} isLogged={'false'} promoMessage={''} customerEmail={''} customerIdNum={''} isPro={''} />
       <AgePopup />
+      <CookieConsentPopup />
 
       <Main>{children}</Main>
 

@@ -18,7 +18,6 @@ export function CartWrapper({ children }) {
     });
     CoCart.get(`cart?cart_key=${cart_key}`)
       .then((response) => {
-        console.log('Response Data:', response.data);
         setCartValue(response.data); // adjust this based on the actual response structure
       })
       .catch((error) => {

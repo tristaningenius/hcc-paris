@@ -5,7 +5,6 @@ import { ProductGallery, ProductForm } from 'components/product/';
 import { Accordion } from 'components/elements';
 
 export default function Product({ product }) {
-  console.log(product);
   const { description } = product;
 
   return (

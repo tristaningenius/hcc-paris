@@ -5,7 +5,6 @@ import { Icon } from './IconImport';
 import { Text } from 'components/elements';
 
 export function Accordion({ data }) {
-  console.log('dataaccordeon', data);
   const [activeIndex, setActiveIndex] = useState(-1);
   const contentRefs = useRef([]);
 

@@ -75,7 +75,7 @@ export function MenuModal({ isOpen, closeModal }) {
   return (
     <div
       ref={modalRef}
-      className="absolute z-50 hidden h-[calc(100dvh-3.5rem)] w-screen overflow-hidden bg-tertiary-200 "
+      className="absolute z-[100] hidden h-[calc(100dvh-3.5rem)] w-screen overflow-hidden bg-tertiary-200 "
     >
       <div
         ref={modalContentRef}
