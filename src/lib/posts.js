@@ -1,4 +1,5 @@
 import { getApolloClient } from 'lib/apollo-client';
+import { InMemoryCache } from '@apollo/client';
 
 import { updateUserAvatar } from 'lib/users';
 import { sortObjectsByDate } from 'lib/datetime';
@@ -467,7 +468,11 @@ export async function getGlobalFaq(faqId) {
 }
 
 export async function getProductBySlug(slug) {
-  const apolloClient = getApolloClient();
+  const apolloClient = getApolloClient({
+    cache: new InMemoryCache({
+      resultCaching: false,
+    }),
+  });
 
   const { data } = await apolloClient.query({
     query: QUERY_PRODUCT_BY_SLUG,

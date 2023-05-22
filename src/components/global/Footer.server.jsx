@@ -54,7 +54,7 @@ export function Footer() {
           <address className="flex flex-col gap-2 not-italic">
             <h5 className="pb-2 font-semibold">Une question ?</h5>
 
-            <Button variant="linkFooter" className="underline" to="/contact">
+            <Button variant="linkFooter" className="underline" to="https://checkout.hhcparis.fr/contact/">
               Nous contacter
             </Button>
             <div>

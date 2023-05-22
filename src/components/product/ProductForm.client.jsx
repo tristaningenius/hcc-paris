@@ -11,7 +11,7 @@ export function ProductForm({ product }) {
   const [productIdPickup, setProductIdPickup] = useState(null);
   // const [pricePerGramme, setPricePerGramme] = useState(null);
   const [newPrice, setNewPrice] = useState(0);
-  let variationsOutOfStock = [];
+  const [variationsOutOfStock, setVariationsOutOfStock] = useState([]);
   const {
     variations,
     name,
@@ -25,13 +25,16 @@ export function ProductForm({ product }) {
     isGrosProduct = false,
   } = product;
   console.log(product);
-
+  let variationStock = [];
   if (type === 'VARIABLE') {
     variations.nodes.forEach((variation) => {
       if (variation.stockStatus === 'OUT_OF_STOCK') {
-        variationsOutOfStock.push(variation.name.split('-')[1].trim().toLowerCase().replace(' ', '-'));
+        variationStock.push(variation.name);
       }
     });
+  }
+  if (variationStock.length !== variationsOutOfStock.length) {
+    setVariationsOutOfStock(variationStock);
   }
 
   const baseRegularPrice = regularPrice.split('&')[0];
@@ -50,7 +53,7 @@ export function ProductForm({ product }) {
   const handlePriceChange = (value) => {
     variations.nodes.forEach((attribute) => {
       let variationPoid = attribute.name.split('-')[1].trim().toLowerCase().replace(' ', '-');
-      let newValue = value.replace(/(?<=\d)-(?=\d)/g, '.');
+      let newValue = value.replace(/(\d)-(\d)/g, '$1.$2');
 
       if (variationPoid === newValue) {
         let regularPriceOnlyNumberAndCommatoNumber = attribute.regularPrice.replace(/[^0-9,]/g, '');
@@ -204,7 +207,7 @@ function OptionRadio({ name, valuewithprice, onData, variationsOutOfStock }) {
               className="text-trans-30 cursor-pointer bg-tertiary-300 px-4 pt-1 font-[teko] text-2xl peer-checked:border peer-checked:border-trans-50  peer-checked:bg-tertiary-100 peer-checked:text-neutral-700"
             >
               {/*replace in value all "-" between two number*/}
-              {value.replace(/(?<=\d)-(?=\d)/g, '.')}
+              {value.replace(/(\d)-(\d)/g, '$1.$2')}
             </label>
           </div>
         );
