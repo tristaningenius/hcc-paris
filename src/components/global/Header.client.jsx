@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button, LogoStar } from 'components/elements';
@@ -6,6 +6,7 @@ import { MenuModal } from 'components/elements/MenuModal.client';
 import logoTextFull from '../../assets/logo-text-full.svg';
 import { ModalCart } from '../Cart';
 import { useCartStore } from 'components/elements/cartStore';
+import { gsap } from 'gsap';
 
 export function Header({ isLogged, customerEmail, customerIdNum, isPro }) {
   const [isPanierModalOpen, setIsPanierModalOpen] = useState(false);
@@ -15,7 +16,6 @@ export function Header({ isLogged, customerEmail, customerIdNum, isPro }) {
     cartStore.fetch();
   });
   const cartValue = cartStore.cart;
-  // useItemsStore((state) => state.setItems({ items: cartValue.item_count }));
 
   return (
     <>
@@ -88,6 +88,15 @@ function MobileHeader({ data, isLogged, isOpen, setIsOpen, isTopBannerOpen, cust
   );
 }
 function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
+  const targetRef = useRef();
+  // when click on magRef, scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: targetRef.current.offsetTop,
+      behavior: 'smooth',
+    });
+  };
+
   const toggleCartModal = () => setIsOpen(!isOpen);
 
   return (
@@ -163,6 +172,8 @@ function DesktopHeader({ data, isOpen, setIsOpen, isPro }) {
             className={
               'inline-block min-h-[1rem] cursor-pointer pt-1 font-[teko] text-2xl font-medium uppercase tracking-wide text-neutral-600 hover:text-primary-600 active:text-primary-800'
             }
+            onClick={scrollToTop}
+            ref={targetRef}
           >
             NOS MAGASINS
           </div>

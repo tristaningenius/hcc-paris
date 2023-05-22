@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
 import { Section, Heading, Divider, Icon, Button } from 'components/elements';
 
 export function HomeContact() {
@@ -33,57 +32,48 @@ export function HomeContact() {
           <address className="not-italic">
             <ul className="flex flex-col gap-4 uppercase">
               <li>
-                <Link
+                <div>
+                  <span className="font-[teko] text-xl sm:text-2xl">PARIS</span> 3 rue des Fossés Saint-Marcel - 75005
+                  Paris
+                </div>
+                <a
                   className="flex text-2xl sm:text-3xl"
                   href="https://maps.app.goo.gl/YZ5BWGrq4R1XeNX68"
                   target="_blank"
+                  rel="noreferrer"
                 >
-                  <>
-                    <div>
-                      <span className="font-[teko] text-xl sm:text-2xl">PARIS</span> 3 rue des Fossés Saint-Marcel -
-                      75005 Paris
-                    </div>
-                    <div>
-                      <Icon icon="arrow_outward" size="50" />
-                    </div>
-                  </>
-                </Link>
+                  <div>
+                    <Icon icon="arrow_outward" size="50" />
+                  </div>
+                </a>
               </li>
               <Divider color="20" />
               <li>
-                <Link
-                  className="flex text-2xl sm:text-3xl"
-                  href="https://maps.app.goo.gl/jyHLCMb1iXgaZycW6"
-                  target="_blank"
-                >
-                  <>
-                    <div>
-                      <span className="font-[teko] text-xl sm:text-2xl">Pontoise</span> 29 rue Alexandre Prachay - 95300
-                      Pontoise
-                    </div>
-                    <div>
-                      <Icon icon="arrow_outward" size="50" />
-                    </div>
-                  </>
-                </Link>
+                <div>
+                  <span className="font-[teko] text-xl sm:text-2xl">Pontoise</span> 29 rue Alexandre Prachay - 95300
+                  Pontoise
+                </div>
+                <a href="https://maps.app.goo.gl/jyHLCMb1iXgaZycW6" target="_blank" rel="noreferrer">
+                  <div>
+                    <Icon icon="arrow_outward" size="50" />
+                  </div>
+                </a>
               </li>
               <Divider color="20" />
               <li>
-                <Link
+                <div>
+                  <span className="font-[teko] text-xl sm:text-2xl">Eaubonne</span> 40 rue Gabriel Péri - 95600 Eaubonne
+                </div>
+                <a
                   className="flex text-2xl sm:text-3xl"
                   href="https://maps.app.goo.gl/1xRLXcnGxZ6zxpsc9"
                   target="_blank"
+                  rel="noreferrer"
                 >
-                  <>
-                    <div>
-                      <span className="font-[teko] text-xl sm:text-2xl">Eaubonne</span> 40 rue Gabriel Péri - 95600
-                      Eaubonne
-                    </div>
-                    <div>
-                      <Icon icon="arrow_outward" size="50" />
-                    </div>
-                  </>
-                </Link>
+                  <div>
+                    <Icon icon="arrow_outward" size="50" />
+                  </div>
+                </a>
               </li>
             </ul>
           </address>

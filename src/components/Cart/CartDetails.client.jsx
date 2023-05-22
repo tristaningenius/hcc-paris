@@ -222,12 +222,13 @@ function OrderSummary({ cart }) {
     return null;
   }
   const { totals } = cart;
+  console.log(totals);
   if (!totals) return null;
   return (
     <dl className="grid grid-cols-2 gap-2">
       <dt className="mt-0 font-[teko] text-3xl not-italic">TOTAL TTC</dt>
       <dd className="totalToReplace mb-0 p-0 text-right font-[teko] text-3xl">
-        {(totals.subtotal / 100).toFixed(2)} €
+        {((totals.total - totals.shipping_total) / 100).toFixed(2)} €
       </dd>
       <dt className="mt-0 text-xs font-semibold not-italic text-neutral-500">Frais de livraison </dt>
       <dd className="mb-0 p-0 text-right text-xs text-neutral-500">
